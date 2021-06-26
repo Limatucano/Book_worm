@@ -18,5 +18,14 @@
         android:id="@+id/bridgeFragment"
         android:name="correa.matheus.books_reader.BridgeFragment"
         android:label="bridge_fragment"
-        tools:layout="@layout/bridge_fragment" />
+        tools:layout="@layout/bridge_fragment" >
+        <action
+            android:id="@+id/action_bridgeFragment_to_readBarCodeFragment"
+            app:destination="@id/readBarCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/readBarCodeFragment"
+        android:name="correa.matheus.books_reader.ReadBarCodeFragment"
+        android:label="read_bar_code_fragment"
+        tools:layout="@layout/read_bar_code_fragment" />
 </navigation>
