@@ -1,4 +1,4 @@
-package correa.matheus.books_reader
+package correa.matheus.books_reader.view
 
 import android.Manifest
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.zxing.Result
+import correa.matheus.books_reader.R
+import correa.matheus.books_reader.viewModel.ReadBarCodeViewModel
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
@@ -81,6 +83,7 @@ class ReadBarCodeFragment : Fragment(), EasyPermissions.PermissionCallbacks,ZXin
         Log.d("TESTANDO", result?.text.toString())
         Toast.makeText(context, result?.text.toString(), Toast.LENGTH_LONG).show()
         scan?.stopCamera()
+
     }
 
 }

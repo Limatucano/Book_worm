@@ -1,4 +1,4 @@
-package correa.matheus.books_reader
+package correa.matheus.books_reader.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import correa.matheus.books_reader.R
+import correa.matheus.books_reader.viewModel.MainViewModel
 
 class MainFragment : Fragment() {
     private val viewBinding : MainFragment by viewBinding()

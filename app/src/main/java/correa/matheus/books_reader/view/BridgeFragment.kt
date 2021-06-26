@@ -1,4 +1,4 @@
-package correa.matheus.books_reader
+package correa.matheus.books_reader.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,7 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import correa.matheus.books_reader.R
+import correa.matheus.books_reader.viewModel.BridgeViewModel
 
 class BridgeFragment : Fragment() {
 

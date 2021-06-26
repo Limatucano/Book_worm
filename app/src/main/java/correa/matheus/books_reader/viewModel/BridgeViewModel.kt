@@ -1,4 +1,4 @@
-package correa.matheus.books_reader
+package correa.matheus.books_reader.viewModel
 
 import androidx.lifecycle.ViewModel
 
