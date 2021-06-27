@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Books_reader</string>
+    <string name="title_my_books">Meus livros</string>
+    <string name="title">BookWorm</string>
 </resources>
