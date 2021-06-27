@@ -1,0 +1,29 @@
+
+@startuml Sequence Register
+
+(*) --> "Press 'New' button" as A1
+if "Register by ISBN?" then
+    --> [yes] "Read ISBN with camera" as A2
+
+    if "Book found?" then
+        --> [yes] "Load form pre-filled with information from API."
+
+        if "Finish or Cancel?" then
+            --> [finish] "Press 'Finish' button." as A4
+            --> (*)
+        else
+            --> [cancel] "Press 'Cancel' button." as A5
+            --> A1
+        endif
+
+    else
+        --> [no] A2
+    endif
+
+else 
+    --> [no] "Fill form manually" as A3
+    --> A4
+endif
+
+@enduml
+
