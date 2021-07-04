@@ -9,10 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import com.google.zxing.Result
 import correa.matheus.books_reader.R
 import correa.matheus.books_reader.model.DataBook
+import correa.matheus.books_reader.model.api.Book
 import correa.matheus.books_reader.model.api.BookRepository
+import correa.matheus.books_reader.model.api.BookResult
 import correa.matheus.books_reader.model.api.BooksApiResult
 import correa.matheus.books_reader.viewModel.ReadBarCodeViewModel
 import me.dm7.barcodescanner.zxing.ZXingScannerView
@@ -83,16 +87,19 @@ class ReadBarCodeFragment : Fragment(), EasyPermissions.PermissionCallbacks,ZXin
 
     override fun handleResult(result: Result?) {
         val scan = view?.findViewById<ZXingScannerView>(R.id.z_xing_scanner)
-        Log.d("TESTANDO", result?.text.toString())
         val books = BookRepository()
         if (result != null) {
             books.getBook(result.text){status:Int?, bookApiResult: BooksApiResult? ->
+                val firstBook: Book?
                 bookApiResult?.items.let {
-                    val firstBook = it?.get(0)?.volumeInfo
-                    Toast.makeText(context, firstBook.toString(), Toast.LENGTH_LONG).show()
-                    if (firstBook != null) {
-                        DataBook(firstBook.title, firstBook.description, firstBook.authors, firstBook.imageLinks.thumbnail)
-                    }
+                    firstBook = it?.get(0)?.volumeInfo
+                }
+                if(firstBook == null){
+                    view?.findNavController()?.navigate(R.id.action_readBarCodeFragment_to_registerFragment)
+                }else{
+                    val list = listOf<String>(firstBook.title, firstBook.description, firstBook.authors.joinToString())
+                    val bundle = bundleOf("title" to firstBook.title, "authors" to firstBook.authors.joinToString(), "description" to firstBook.description)
+                    view?.findNavController()?.navigate(R.id.action_readBarCodeFragment_to_registerFragment, bundle)
                 }
             }
         }
