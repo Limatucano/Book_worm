@@ -21,12 +21,12 @@
             app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:padding="40dp">
+            android:paddingTop="20dp">
 
             <ImageView
                 android:id="@+id/thumbnail"
-                android:layout_width="189dp"
-                android:layout_height="226dp"
+                android:layout_width="128dp"
+                android:layout_height="178dp"
                 android:src="@color/background"/>
 
             <EditText
@@ -35,15 +35,23 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_horizontal"
                 android:hint="Digite o título aqui"
                 android:backgroundTint="@color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
             <EditText
                 android:id="@+id/authors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_horizontal"
                 android:textColorHint="@color/white"
                 android:textSize="16sp"
                 android:hint="Digite os autores aqui"
@@ -72,14 +80,49 @@
             android:layout_marginLeft="40dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
+            android:justificationMode="inter_word"
             android:backgroundTint="@color/white"
             android:hint="Digite a descrição aqui"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:inputType="text|textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="135dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/btn_scan"
+            android:text="Salvar"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="135dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:background="@drawable/btn_register"
+            android:text="Cancelar"
+            android:textColor="@color/orange"
+            android:textSize="12sp"
+            android:theme="@style/teste"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSave"
+            app:layout_constraintEnd_toStartOf="@+id/btnSave"
+            app:layout_constraintHorizontal_bias="0.065"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnSave"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

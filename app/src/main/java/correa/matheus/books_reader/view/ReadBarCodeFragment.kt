@@ -97,8 +97,7 @@ class ReadBarCodeFragment : Fragment(), EasyPermissions.PermissionCallbacks,ZXin
                 if(firstBook == null){
                     view?.findNavController()?.navigate(R.id.action_readBarCodeFragment_to_registerFragment)
                 }else{
-                    val list = listOf<String>(firstBook.title, firstBook.description, firstBook.authors.joinToString())
-                    val bundle = bundleOf("title" to firstBook.title, "authors" to firstBook.authors.joinToString(), "description" to firstBook.description)
+                    val bundle = bundleOf("title" to firstBook.title, "authors" to firstBook.authors.joinToString(), "description" to firstBook.description, "thumbnail" to firstBook.imageLinks.thumbnail)
                     view?.findNavController()?.navigate(R.id.action_readBarCodeFragment_to_registerFragment, bundle)
                 }
             }
