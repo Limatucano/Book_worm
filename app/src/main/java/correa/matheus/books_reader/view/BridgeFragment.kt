@@ -2,6 +2,7 @@ package correa.matheus.books_reader.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
 import correa.matheus.books_reader.R
+import correa.matheus.books_reader.model.DataBook
+import correa.matheus.books_reader.model.api.BookRepository
+import correa.matheus.books_reader.model.api.BookResult
+import correa.matheus.books_reader.model.api.BooksApiResult
 import correa.matheus.books_reader.viewModel.BridgeViewModel
 
 class BridgeFragment : Fragment() {

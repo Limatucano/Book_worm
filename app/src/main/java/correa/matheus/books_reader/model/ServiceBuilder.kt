@@ -8,7 +8,7 @@ object ServiceBuilder {
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.googleapis.com/books/v1/volumes/")
+            .baseUrl("https://www.googleapis.com/books/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

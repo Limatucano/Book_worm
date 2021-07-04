@@ -11,6 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.zxing.Result
 import correa.matheus.books_reader.R
+import correa.matheus.books_reader.model.DataBook
+import correa.matheus.books_reader.model.api.BookRepository
+import correa.matheus.books_reader.model.api.BooksApiResult
 import correa.matheus.books_reader.viewModel.ReadBarCodeViewModel
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 import pub.devrel.easypermissions.EasyPermissions
@@ -81,8 +84,20 @@ class ReadBarCodeFragment : Fragment(), EasyPermissions.PermissionCallbacks,ZXin
     override fun handleResult(result: Result?) {
         val scan = view?.findViewById<ZXingScannerView>(R.id.z_xing_scanner)
         Log.d("TESTANDO", result?.text.toString())
-        Toast.makeText(context, result?.text.toString(), Toast.LENGTH_LONG).show()
+        val books = BookRepository()
+        if (result != null) {
+            books.getBook(result.text){status:Int?, bookApiResult: BooksApiResult? ->
+                bookApiResult?.items.let {
+                    val firstBook = it?.get(0)?.volumeInfo
+                    Toast.makeText(context, firstBook.toString(), Toast.LENGTH_LONG).show()
+                    if (firstBook != null) {
+                        DataBook(firstBook.title, firstBook.description, firstBook.authors, firstBook.imageLinks.thumbnail)
+                    }
+                }
+            }
+        }
         scan?.stopCamera()
+
 
     }
 
